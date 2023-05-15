@@ -1,15 +1,16 @@
 'use client';
-import Image from 'next/image'
-import CalculatorButton from '@/components/CalculatorButton';
 import BasicButtonList from '@/components/BasicButtonList';
+import { CenterSection } from '@/components/CenterSection';
+import Screen from '@/components/Screen';
+
 
 export default function Home() {
   return (
     <>
-      <h1 className='min-h-5 text-3xl fill-slate-300 border-black border-size flex justify-center items-center'> Hello world</h1>
-      <div className='flex justify-center items-center'>
+      <CenterSection>
+        <Screen content="Sample text" />
         <BasicButtonList />
-      </div>
+      </CenterSection>
     </>
   )
 }

@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image'
-import styles from './page.module.css'
 import CalculatorButton from '@/components/CalculatorButton';
 import BasicButtonList from '@/components/BasicButtonList';
 

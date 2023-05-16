@@ -5,7 +5,7 @@ interface ScreenProps {
 export default function Screen(props: ScreenProps) {
     return (
         <input 
-                className="bg-blue-100 border w-lg border-black rounded-sm text-right pr-3"  
+                className="text-lg bg-[#f7ebec] border-4 border-black font-bold h-14 w-lg rounded-sm text-right pr-3"  
                 readOnly={true}
                 value={props.content}/>
     )

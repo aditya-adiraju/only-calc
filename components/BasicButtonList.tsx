@@ -13,7 +13,7 @@ export default function BasicButtonList(props: BasicButtonListProps) {
 
     return (
         <div className='grid grid-cols-4 gap-3 max-w-md justify-center items-center'>
-          <CalculatorButton onClick={props.clearCalculation} value={"C"} />
+          <CalculatorButton className='bg-[#ac9fbb]' onClick={props.clearCalculation} value={"C"} />
           <CalculatorButton onClick={props.eraseLastCalculation} value={"⌫"} />
           <CalculatorButton onClick={() => props.addCalculation('%')} value={"%"} />
           <CalculatorButton onClick={() => props.addCalculation('*')}  value={"X"} /> 
@@ -31,7 +31,7 @@ export default function BasicButtonList(props: BasicButtonListProps) {
           <CalculatorButton onClick={() => props.addCalculation('+')} value={"+"} /> 
           <CalculatorButton onClick={() => props.addCalculation('0')} value={0} /> 
           <CalculatorButton onClick={() => props.addCalculation('.')} value={"."} />   
-          <CalculatorButton onClick={props.parseCalculation} className='col-span-2' value={"="} />        
+          <CalculatorButton onClick={props.parseCalculation} className='bg-[#ac9fbb] col-span-2' value={"="} />        
         </div>
     )
 }

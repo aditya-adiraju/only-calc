@@ -7,7 +7,8 @@ interface CenterSectionProps {
 
 export function CenterSection({ children }: CenterSectionProps) {
     return (
-        <>
+        <div className='flex justify-center content-center pt-10'>
+    <div className="bg-[#59656f] justify-center items-center w-min px-4 py-4 pt-15 rounded-lg">
             {children &&
             Children.map(children, child => {
                 return (
@@ -15,6 +16,7 @@ export function CenterSection({ children }: CenterSectionProps) {
                         {child}
                     </div>
                 )})}
-        </>
+        </div>
+        </div>
     )
 }

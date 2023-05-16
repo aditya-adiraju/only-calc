@@ -4,6 +4,7 @@ import { CenterSection } from '@/components/CenterSection';
 import Screen from '@/components/Screen';
 import { useState } from 'react';
 import { evaluate } from 'mathjs';
+import Header from '@/components/Header';
 
 export default function Home() {
   const [calculation, setCalculation] = useState("1+1");

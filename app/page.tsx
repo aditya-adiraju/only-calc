@@ -1,6 +1,6 @@
 "use client";
 import BasicButtonList from "@/components/BasicButtonList";
-import { CenterSection } from "@/components/CenterSection";
+import CenterSection from "@/components/CenterSection";
 import Screen from "@/components/Screen";
 import React, { useState } from "react";
 import { evaluate } from "mathjs";
@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  const [calculation, setCalculation] = useState("1+1");
+  const [calculation, setCalculation] = useState("");
 
   function addCalculation(calc: string): void {
     if (calculation === "SYNTAX ERROR") setCalculation((prev) => "");
@@ -49,10 +49,16 @@ export default function Home() {
   function handleKeyPress(event: React.KeyboardEvent) : void {
     switch(event.key) {
       case "Enter":
+        event.preventDefault();
         parseCalculation();
         break;
       case "Delete":
+        event.preventDefault();
         clearCalculation();  
+        break;
+      case "Backspace":
+        event.preventDefault();
+        eraseLastCalculation();
         break;
     }
   }
@@ -60,7 +66,7 @@ export default function Home() {
   return (
     <div className="min-h-full">
       <Header />
-      <main>
+      <main className="min-h-[70%]">
         <CenterSection>
           <Screen content={calculation} onChange={handleInputChange} onKeyDown={handleKeyPress} />
           <BasicButtonList

@@ -5,6 +5,15 @@ interface CalculatorButtonProps {
 }
 
 export default function CalculatorButton(props: CalculatorButtonProps) {
+  function handleKeyPress(event: React.KeyboardEvent): any {
+    console.log(event.key + " key pressed")
+    console.log(props.value)
+    if (event.key === props.value) {
+      console.log("TRIGGERED ONCLICK")
+      props.onClick();
+    }
+  }
+
   return (
     <>
       <button
@@ -15,6 +24,7 @@ export default function CalculatorButton(props: CalculatorButtonProps) {
               props.className
         }
         onClick={props.onClick}
+        onKeyDown={handleKeyPress}
       >
         {props.value}
       </button>

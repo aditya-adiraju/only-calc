@@ -2,7 +2,7 @@
 import BasicButtonList from "@/components/BasicButtonList";
 import { CenterSection } from "@/components/CenterSection";
 import Screen from "@/components/Screen";
-import React, { useState } from "react";
+import { useState } from "react";
 import { evaluate } from "mathjs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -41,28 +41,12 @@ export default function Home() {
     setCalculation(result);
   }
 
-  function handleInputChange(event: React.ChangeEvent): void {
-    const target = event.target as HTMLInputElement;
-    setCalculation(target.value);
-  }
-
-  function handleKeyPress(event: React.KeyboardEvent) : void {
-    switch(event.key) {
-      case "Enter":
-        parseCalculation();
-        break;
-      case "Delete":
-        clearCalculation();  
-        break;
-    }
-  }
-
   return (
     <div className="min-h-full">
       <Header />
       <main>
         <CenterSection>
-          <Screen content={calculation} onChange={handleInputChange} onKeyDown={handleKeyPress} />
+          <Screen content={calculation} />
           <BasicButtonList
             calculation={calculation}
             addCalculation={addCalculation}

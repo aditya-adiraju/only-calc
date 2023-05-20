@@ -11,7 +11,7 @@ interface BasicButtonListProps {
 
 export default function BasicButtonList(props: BasicButtonListProps) {
   return (
-    <div className="grid grid-cols-4 gap-3 max-w-md justify-center items-center">
+    <div className="inline-grid grid-cols-4 gap-3 max-w-md justify-center items-center">
       <CalculatorButton
         className="bg-[#ac9fbb]"
         onClick={props.clearCalculation}

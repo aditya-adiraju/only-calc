@@ -20,7 +20,15 @@ export default function Home() {
   }
 
   function eraseLastCalculation(): void {
-    clearCalculation();
+    if (
+      calculation === "SYNTAX ERROR" ||
+      calculation === "Infinity" ||
+      !(typeof calculation === "string")
+    ) {
+      clearCalculation();
+    } else {
+      setCalculation(calculation.substring(0, calculation.length - 1));
+    }
   }
 
   function parseCalculation(): void {
@@ -34,7 +42,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-fit">
+    <div className="min-h-full">
       <Header />
       <main>
         <CenterSection>
@@ -47,6 +55,8 @@ export default function Home() {
             parseCalculation={parseCalculation}
           />
         </CenterSection>
+        <br />
+        <br />
       </main>
       <Footer />
     </div>

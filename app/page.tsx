@@ -1,65 +1,65 @@
-"use client";
-import BasicButtonList from "@/components/BasicButtonList";
-import CenterSection from "@/components/CenterSection";
-import Screen from "@/components/Screen";
-import React, { useState } from "react";
-import { evaluate } from "mathjs";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+'use client'
+import BasicButtonList from '@/components/BasicButtonList'
+import CenterSection from '@/components/CenterSection'
+import Screen from '@/components/Screen'
+import React, { useState } from 'react'
+import { evaluate } from 'mathjs'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
-export default function Home() {
-  const [calculation, setCalculation] = useState("");
+export default function Home (): React.ReactElement {
+  const [calculation, setCalculation] = useState('')
 
-  function addCalculation(calc: string): void {
-    if (calculation === "SYNTAX ERROR") setCalculation((prev) => "");
-    setCalculation((prevCalculation) => prevCalculation + calc);
+  function addCalculation (calc: string): void {
+    if (calculation === 'SYNTAX ERROR') setCalculation((prev) => '')
+    setCalculation((prevCalculation) => prevCalculation + calc)
   }
 
-  function clearCalculation(): void {
-    setCalculation("");
+  function clearCalculation (): void {
+    setCalculation('')
   }
 
-  function eraseLastCalculation(): void {
+  function eraseLastCalculation (): void {
     if (
-      calculation === "SYNTAX ERROR" ||
-      calculation === "Infinity" ||
-      !(typeof calculation === "string")
+      calculation === 'SYNTAX ERROR' ||
+      calculation === 'Infinity' ||
+      !(typeof calculation === 'string')
     ) {
-      clearCalculation();
+      clearCalculation()
     } else {
-      setCalculation(calculation.substring(0, calculation.length - 1));
+      setCalculation(calculation.substring(0, calculation.length - 1))
     }
   }
 
-  function parseCalculation(): void {
-    let result: string;
+  function parseCalculation (): void {
+    let result: string
     try {
-      result = evaluate(calculation);
+      result = evaluate(calculation)
     } catch (e) {
-      result = "SYNTAX ERROR";
+      result = 'SYNTAX ERROR'
     }
-    setCalculation(result);
+    setCalculation(result)
   }
 
-  function handleInputChange(event: React.ChangeEvent): void {
-    const target = event.target as HTMLInputElement;
-    setCalculation(target.value);
+  function handleInputChange (event: React.ChangeEvent): void {
+    const target = event.target as HTMLInputElement
+    setCalculation(target.value)
   }
 
-  function handleKeyPress(event: React.KeyboardEvent) : void {
-    switch(event.key) {
-      case "Enter":
-        event.preventDefault();
-        parseCalculation();
-        break;
-      case "Delete":
-        event.preventDefault();
-        clearCalculation();  
-        break;
-      case "Backspace":
-        event.preventDefault();
-        eraseLastCalculation();
-        break;
+  function handleKeyPress (event: React.KeyboardEvent): void {
+    switch (event.key) {
+      case 'Enter':
+        event.preventDefault()
+        parseCalculation()
+        break
+      case 'Delete':
+        event.preventDefault()
+        clearCalculation()
+        break
+      case 'Backspace':
+        event.preventDefault()
+        eraseLastCalculation()
+        break
     }
   }
 
@@ -82,5 +82,5 @@ export default function Home() {
       </main>
       <Footer />
     </div>
-  );
+  )
 }
